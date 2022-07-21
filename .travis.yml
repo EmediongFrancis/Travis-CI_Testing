@@ -1,0 +1,24 @@
+language: node_js
+node_js:
+  - 13 # Node.js version to use.
+
+services:
+  - docker
+
+# Tools to install, if any.
+install:
+  - echo "Nothing needs to be installed."
+
+# Tests to run, if any.
+before_script:
+  - echo "No tests available."
+
+# Script to run, if any.
+script:
+  - docker --version # Check if Docker is installed.
+  - docker build -t simple-node . # Build the image.
+  - docker tag simple-node emediongfrancis/simple-node:latest # Tag the image to Docker Hub.
+
+after_success:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin # Login to Docker Hub.
+  - docker push emediongfrancis/simple-node # Push the image to your Docker Hub.
