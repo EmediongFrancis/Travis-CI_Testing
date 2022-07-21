@@ -1,2 +1,2 @@
-# Travis-CI_Testing
-Testing basic Travis CI/CD pipeline of a simple NodeJS application.
+# Travis CI Testing
+Testing basic Travis CI/CD pipeline for deploying a simple NodeJS application docker image.
